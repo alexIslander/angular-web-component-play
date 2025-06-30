@@ -1,0 +1,13 @@
+<div class="timer-container">
+  <div class="timer-setup" *ngIf="!timerRunning && !showTimesUp">
+    <input type="number" [(ngModel)]="inputSeconds" min="1" placeholder="Seconds" />
+    <button class="start-btn" (click)="startTimer()" [disabled]="timerRunning || !inputSeconds">Start</button>
+  </div>
+  <div class="timer-display" *ngIf="timerStarted">
+    <span class="time">{{ remainingSeconds }}s</span>
+    <button class="reset-btn" (click)="resetTimer()" title="Reset">
+      <span class="reset-icon">&#x21bb;</span>
+    </button>
+  </div>
+  <div class="times-up" *ngIf="showTimesUp">Time's up!</div>
+</div>

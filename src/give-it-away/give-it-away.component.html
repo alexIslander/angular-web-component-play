@@ -1,0 +1,20 @@
+<div class="gift-wrapper-container">
+  <h3>Gift Wrapper</h3>
+  <ng-container *ngIf="!giftSent; else sentBlock">
+    <div class="gift-input-row">
+      <label>Gift: </label>
+      <input [(ngModel)]="gift" placeholder="Type your gift here" />
+      <button class="gift-btn" (click)="wrapGift()">
+        <span class="gift-emoji">🎁</span>Wrap & Give
+      </button>
+    </div>
+  </ng-container>
+  <ng-template #sentBlock>
+    <div class="gift-sent-message">
+      <span class="gift-emoji">🎉</span> Gift sent!
+    </div>
+    <button class="gift-btn" (click)="resetGift()" style="margin-top: 1em;">
+      Reset
+    </button>
+  </ng-template>
+</div>
