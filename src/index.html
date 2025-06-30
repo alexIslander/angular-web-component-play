@@ -8,6 +8,18 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <like-button></like-button>
+    <div style="display: flex; justify-content: center; align-items: center; height: 150px;">
+      <like-button size="100px"></like-button>
+    </div>
+    <simple-awesome></simple-awesome>
+    <give-it-away id="giveItAway"></give-it-away>
+    <div id="output"></div>
+    <script>
+      const giveItAway = document.getElementById('giveItAway');
+      const output = document.getElementById('output');
+      giveItAway.addEventListener('wrapped', event => {
+        output.innerHTML = `<pre>${JSON.stringify(event.detail, null, 2)}</pre>`;
+      });
+    </script>
 </body>
 </html>
